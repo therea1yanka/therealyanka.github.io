@@ -1,151 +1,153 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF8">
-        <title>Новый год у елки | Family First</title>
-         <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-         <style>
-            body {
-                margin: 0;
-                background-color: #f3eefc;
-                font-family: 'Merriweather', serif;
-                text-align: center;
-                color: #2e2e38;
-            
-            }
 
-            .header { 
-                background-color: #1a1a1a;
-                padding: 15px 30px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-            }
+<head>
+    <meta charset="UTF-8">
+    <title>Время вместе | Family First</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background-color: #f3eefc;
+            font-family: 'Merriweather', serif;
+            text-align: center;
+            color: #2e2e38;
+        }
 
-            .header h2 {
-                margin: 0;
-                color: #ffffff;
-            }
+        .header {
+            background-color: #1a1a1a;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
 
-            .header a {
-                color: #9b7ede;
-                text-decoration: none;
-                font-weight: bold;
-            }
+        .header h2 {
+            margin: 0;
+            color: #ffffff;
+        }
 
-            .header a:hover {
-                color: #ffffff;
-            }
+        .header a {
+            color: #9b7ede;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
+        .header a:hover {
+            color: #ffffff;
+        }
+
+        .main {
+            padding: 50px 30px;
+        }
+
+        h1 {
+            color: #9b7ede;
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #9b7ede;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .gallery img {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 46, 56, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .back {
+            display: inline-block;
+            margin-top: 40px;
+            padding: 12px 25px;
+            background-color: #9b7ede;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back:hover {
+            background-color: #7a5fc0;
+        }
+
+        @media (max-width: 768px) {
             .main {
-                padding: 50px 30px;
+                padding: 30px 15px;
             }
 
             h1 {
-                color: #9b7ede;
-                font-size: 42px;
-                margin-bottom: 15px;
+                font-size: 26px;
             }
 
             .subtitle {
-                color: #9b7ede;
-                font-size: 18px;
-                margin-bottom: 40px;
-            }
-
-            .gallery {
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 20px;
-                max-width: 900px;
-                margin: 0 auto;
+                font-size: 15px;
             }
 
             .gallery img {
-                width: 250px;
-                height: 250px;
-                object-fit: cover;
-                border-radius: 15px;
-                box-shadow: 0 4px 15px rgba(46, 46, 56, 0.15);
-                transition: transform 0.3s ease;
+                width: 100%;
+                max-width: 300px;
+                height: auto;
             }
 
-            .gallery img.hover {
-                transform: scale(1.05);
+            .header {
+                padding: 15px 20px;
+            }
+
+            .header h2 {
+                font-size: 18px;
+            }
+
+            .header a {
+                font-size: 14px;
             }
 
             .back {
-                display: inline-block;
-                margin-top: 40px;
-                padding: 12px 25px;
-                background-color: #9b7ede;
-                color: #ffffff;
-                text-decoration: none;
-                border-radius: 10px;
-                transition: background-color 0.3s ease;
+                padding: 10px 20px;
+                font-size: 14px;
             }
+        }
+    </style>
+</head>
 
-            .back:hover  {
-                background-color: #7a5fc0;
-            }
+<body>
+    <div class="header">
+        <h2>Family First</h2>
+        <a href="../index.html">← На главную</a>
+    </div>
 
-@media (max-width: 768px) {
-    .main {
-        padding: 30px 15px;
-    }
-
-    h1 {
-        font-size: 26px;
-    }
-
-    .subtitle {
-        font-size: 15px;
-    }
-
-    .gallery img {
-        width: 100%;
-        max-width: 300px;
-        height: auto;
-    }
-
-    .header {
-        padding: 15px 20px;
-    }
-
-    .header h2 {
-        font-size: 18px;
-    }
-
-    .header a {
-        font-size: 14px;
-    }
-
-    .back {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-}
-
-         </style>
-    </head>
-    <body>
-        <div class="header">
-            <h2>Family First</h2>
-            <a href="../index.html">← На главную</a>
+    <div class="main">
+        <h1>👨‍👩‍👧‍👦 Время вместе</h1>
+        <p class="subtitle">Самое ценное — это моменты, которые мы проводим вместе: прогулки, игры, разговоры и просто
+            тишина рядом</p>
+        <div class="gallery">
+            <img src="https://via.placeholder.com/300" alt="Время вместе 1">
+            <img src="https://via.placeholder.com/300" alt="Время вместе 2">
+            <img src="https://via.placeholder.com/300" alt="Время вместе 3">
         </div>
 
-        <div class="main">
-             <h1>🎄 Новый год у ёлки</h1>
-             <p class="subtitle">Каждый год мы собираемся дома, наряжаем елку и дарим друг другу подарки</p>
-             <div class="gallery">
-                 <img src="https://via.placeholder.com/300" alt="Новый год 1">
-                <img src="https://via.placeholder.com/300" alt="Новый год 2">
-                <img src="https://via.placeholder.com/300" alt="Новый год 3">
-             </div>
+        <a href="../index.html" class="back">← Вернуться на главную</a>
+    </div>
+</body>
 
-             <a href="../index.html" class="back">← Вернуться на главную</a>
-        </div>
-    </body>
 </html>
