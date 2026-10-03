@@ -1,334 +1,345 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Семейный сайт</title>
-        <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
-        <style>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Семейный сайт</title>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            background-color: #f3eefc;
+            font-family: 'Merriweather', serif;
+            text-align: center;
+            padding: 50px;
+            color: #2e2e38;
+        }
+
+        /* ШАПКА */
+        .header {
+            background-color: #1a1a1a;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(46, 46, 56, 0.1);
+            position: relative;
+        }
+
+        .header h2 {
+            margin: 0;
+            color: #ffffff;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .burger {
+            font-size: 32px;
+            color: #9b7ede;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #232329;
+            width: 180px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            border-radius: 0 0 10px 10px;
+        }
+
+        .menu a {
+            display: block;
+            padding: 15px 20px;
+            color: #e0dceb;
+            text-decoration: none;
+            text-align: left;
+            border-bottom: 1px solid #3a3a44;
+        }
+
+        .header .menu a:hover {
+            background-color: #9b7ede;
+            color: #ffffff;
+        }
+
+        #menu-toggle:checked~.menu {
+            max-height: 200px;
+        }
+
+        .main {
+            padding: 50px;
+        }
+
+
+        .header a {
+            margin-left: 20px;
+            text-decoration: none;
+            color: #2e2e38;
+            font-weight: bold;
+        }
+
+        .header a:hover {
+            color: #9b7ede;
+        }
+
+        /* ОСНОВНОЙ БЛОК */
+        .main {
+            padding: 50px;
+        }
+
+        h1 {
+            color: #9b7ede;
+            font-size: 48px;
+        }
+
+        .about {
+            background-color: #232329;
+            padding: 30px;
+            margin-top: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 46, 56, 0.2);
+        }
+
+        .about h2 {
+            color: #9b7ede;
+        }
+
+        .about p {
+            color: #e0dceb;
+            line-height: 1.6;
+        }
+
+        .family {
+            margin-top: 60px;
+        }
+
+        .family h2 {
+            color: #9b7ede;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            width: 200px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 46, 56, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 59%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #9b7ede;
+            margin: 10px 0;
+        }
+
+        .card p {
+            color: #6b6b7b;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .tradition {
+            margin-top: 60px;
+        }
+
+        .tradition h2 {
+            color: #9b7ede;
+            font-size: 36px;
+            margin-bottom: 30px;
+        }
+
+        .tradition-list {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tradition-item {
+            background-color: #ffffff;
+            padding: 20px 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 46, 56, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            text-align: left;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tradition-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(155, 126, 222, 0.25);
+            background-color: #9b7ede
+        }
+
+        .tradition-item:hover p {
+            color: #ffffff;
+        }
+
+        .tradition-item:hover .icon {
+            transform: scale(1.2);
+            transition: transform 0.3s ease;
+        }
+
+
+        .tradition-item .icon {
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .tradition-item p {
+            margin: 0;
+            color: #2e2e38;
+            line-height: 1.5;
+        }
+
+        .contacts {
+            margin-top: 60px;
+            padding: 30px;
+            background-color: #232329;
+            border-radius: 15px;
+            color: #e0dceb;
+        }
+
+        .contacts h2 {
+            color: #9b7ede;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding: 25px;
+            background-color: #1a1a1a;
+            color: #9b7ede;
+            font-size: 14px;
+            border-radius: 15px;
+        }
+
+
+        @media (max-width: 768px) {
+
             body {
-                margin: 0;
-                background-color: #f3eefc;
-                font-family: 'Merriweather', serif;
-                text-align: center;
-                padding: 50px;
-                color: #2e2e38;
+                padding: 15px;
             }
 
-            /* ШАПКА */
             .header {
-                background-color: #1a1a1a;
-                padding: 20px 40px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-shadow: 0 2px 8px rgba(46, 46, 56, 0.1);
-                position: relative;
+                padding: 15px 20px;
             }
 
             .header h2 {
-                margin: 0;
-                color: #ffffff;
+                font-size: 18px;
             }
 
-            #menu-toggle {
-                display: none;
-            }
-            .burger {
+            h1 {
                 font-size: 32px;
-                color: #9b7ede;
-                cursor: pointer;
-                user-select: none;
             }
 
-            .menu {
-                position: absolute;
-                top: 100%;
-                right: 0;
-                background-color: #232329;
-                width: 180px;
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.3s ease;
-                border-radius: 0 0 10px 10px; 
+            .about {
+                padding: 20px;
             }
 
-            .menu a {
-                display: block;
-                padding: 15px 20px;
-                color: #e0dceb;
-                text-decoration: none;
-                text-align: left;
-                border-bottom: 1px solid #3a3a44;
+            .family h2,
+            .tradition h2 {
+                font-size: 26px;
             }
 
-            .header .menu a:hover {
-                background-color: #9b7ede;
-                color: #ffffff;
+            .cards {
+                flex-direction: column;
+                align-items: center;
             }
 
-            #menu-toggle:checked ~ .menu {
-                max-height: 200px;
+            .card {
+                width: 85%;
+                max-width: 320px;
             }
 
-            .main {
-                padding: 50px;
+            .tradition-list {
+                max-width: 100%;
+                padding: 0 5px;
             }
 
-
-            .header a {
-                margin-left: 20px;
-                text-decoration: none;
-                color: #2e2e38;
-                font-weight: bold;
+            .tradition-item {
+                padding: 15px 18px;
+                gap: 12px;
             }
 
-            .header a:hover {
-                color: #9b7ede;
+            .tradition-item p {
+                font-size: 14px;
             }
 
-            /* ОСНОВНОЙ БЛОК */
-            .main {
-                padding: 50px;
+            .tradition-item .icon {
+                font-size: 24px;
             }
-h1 {
-    color: #9b7ede;
-    font-size: 48px;
-}
-.about {
-    background-color: #232329;
-    padding: 30px;
-    margin-top: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(46, 46, 56, 0.2);
-}
-.about h2 {
-    color:#9b7ede;
-}
-.about p {
-    color: #e0dceb;
-    line-height: 1.6;
-}       
-.family {
-    margin-top: 60px;
-}
 
-.family h2 {
-    color: #9b7ede;
-    font-size: 36px;
-    margin-bottom: 30px;
-}
+            .contacts,
+            .footer {
+                padding: 20px;
+            }
 
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-.card {
-    background-color: #ffffff;
-    width: 200px;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(46, 46, 56, 0.1);
-    transition: transform 0.3s ease;
-}
-.card:hover {
-    transform: translateY(-5px);
-}
-.card img {
-    width: 120px;
-    height: 120px;
-    border-radius: 59%;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
-.card h3 {
-    color: #9b7ede;
-    margin: 10px 0;
-}
-.card p {
-    color: #6b6b7b;
-    font-size: 14px;
-    line-height: 1.5;
-}
+            .contacts p,
+            .footer p {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
 
-.tradition {
-    margin-top: 60px;
-}
+<body>
+    <!--ШАПКА-->
+    <div class="header">
+        <h2> Family first</h2>
 
-.tradition h2 { 
-    color: #9b7ede;
-    font-size: 36px;
-    margin-bottom: 30px;
-}
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="burger">&#9776;</label>
 
-.tradition-list {
-    max-width: 600px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.tradition-item {
-    background-color: #ffffff;
-    padding: 20px 25px;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(46, 46, 56, 0.08);
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    text-align: left;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tradition-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(155, 126, 222, 0.25);
-    background-color: #9b7ede
-}
-
-.tradition-item:hover p {
-    color: #ffffff;
-}
-
-.tradition-item:hover .icon {
-    transform: scale(1.2);
-    transition: transform 0.3s ease;
-}
-
-
-.tradition-item .icon {
-    font-size: 32px;
-    flex-shrink: 0;
-}
-
-.tradition-item p {
-    margin: 0;
-    color: #2e2e38;
-    line-height: 1.5;
-}
-
-.contacts {
-    margin-top: 60px;
-    padding: 30px;
-    background-color: #232329;
-    border-radius: 15px;
-    color: #e0dceb;
-}
-
-.contacts h2 {
-    color: #9b7ede;
-}
-
-.footer { 
-    margin-top: 60px;
-    padding: 25px;
-    background-color: #1a1a1a;
-    color: #9b7ede;
-    font-size: 14px;
-    border-radius: 15px;
-}
-
-
-@media (max-width: 768px) {
-
-    body {
-        padding: 15px;
-    }
-
-    .header {
-        padding: 15px 20px;
-    }
-
-    .header h2 {
-        font-size: 18px;
-    }
-
-    h1 {
-        font-size: 32px;
-    }
-
-    .about {
-        padding: 20px;
-    }
-
-    .family h2,
-    .tradition h2 {
-        font-size: 26px;
-    }
-
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .card {
-        width: 85%;
-        max-width: 320px;
-    }
-
-    .tradition-list {
-        max-width: 100%;
-        padding: 0 5px;
-    }
-
-    .tradition-item {
-        padding: 15px 18px;
-        gap: 12px;
-    }
-
-    .tradition-item p {
-        font-size: 14px;
-    }
-
-    .tradition-item .icon {
-        font-size: 24px;
-    }
-
-    .contacts,
-    .footer {
-        padding: 20px;
-    }
-
-    .contacts p,
-    .footer p {
-        font-size: 13px;
-    }
-}
-
-
- </style>
-    </head>
-    <body>
-        <!--ШАПКА-->
-        <div class="header">
-            <h2> Family first</h2>
-
-            <input type="checkbox" id="menu-toggle">
-            <label for="menu-toggle" class="burger">&#9776;</label>
-           
-            <div class="menu">
+        <div class="menu">
             <a href="index.html">Главная</a>
             <a href="#about">О нас</a>
             <a href="#contacts">Контакты</a>
-            </div>
-            </div>
-
-            <!--ОСНОВНОЙ БЛОК-->
-            <div class="main">
-            
-    <h1>Привет!</h1>
-    <div class="about" id="about">
-        <h2>О нас</h2>
-        <p>Мы дружная семья, которая любит проводить время вместе.</p>
-        <p>Здесь мы будем делиться нашими историями и фотографиями.</p>
+        </div>
     </div>
 
+    <!--ОСНОВНОЙ БЛОК-->
+    <div class="main">
 
-    <div class="family">
+        <h1>Привет!</h1>
+        <div class="about" id="about">
+            <h2>О нас</h2>
+            <p>Мы дружная семья, которая любит проводить время вместе.</p>
+            <p>Здесь мы будем делиться нашими историями и фотографиями.</p>
+        </div>
+
+
+        <div class="family">
             <h2>Наша семья</h2>
 
             <div class="cards">
@@ -336,68 +347,69 @@ h1 {
                     <img src="https://via.placeholder.com/150" alt="Мама">
                     <h3>Мама</h3>
                     <p>Самая красивая и заботливая</p>
-                    </div>
+                </div>
 
-                    <div class="card">
-                        <img src="https://via.placeholder.com/150" alt="Я">
-                        <h3>Я</h3>
-                        <p>Крутая</p>
-                        </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" alt="Я">
+                    <h3>Я</h3>
+                    <p>Крутая</p>
+                </div>
 
-                        <div class="card">
-                            <img src="https://via.placeholder.com/150" alt="Сестра">
-                            <h3>Сестра</h3>
-                            <p>Учится на мед. сестру</p>
-                            </div>
-                            <div class="card">
-                                <img src="https://via.placeholder.com/150" alt="Брат 1">
-                                <h3>Брат 1</h3>
-                                <p>Играет в футбол</p>
-                                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" alt="Сестра">
+                    <h3>Сестра</h3>
+                    <p>Учится на мед. сестру</p>
+                </div>
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" alt="Брат 1">
+                    <h3>Брат 1</h3>
+                    <p>Играет в футбол</p>
+                </div>
 
-                                <div class="card">
-                                    <img src="https://via.placeholder.com/150" alt="Брат 2">
-                                    <h3>Брат 2</h3>
-                                    <p>Мелкий ниггер</p>
-                                    </div>
-    </div>
-    </div>                                
-                                
+                <div class="card">
+                    <img src="https://via.placeholder.com/150" alt="Брат 2">
+                    <h3>Брат 2</h3>
+                    <p>Мелкий ниггер</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <div class="traditions">
         <h2>Наши традиции</h2>
 
         <div class="tradition-list">
-            
+
 
             <a href="traditions/newyear.html" class="tradition-item">
-                <span class="icon">🎄</span>
-<p>Новый год встречаем дома с елкой</p>
-</a>
+                <span class="icon">👨‍👩‍👧‍👦</span>
+                <p>Время вместе — прогулки, игры, разговоры</p>
+            </a>
 
 
-<a href="traditions/sea.html" class="tradition-item">
-    <span class="icon">🏖️</span>
-    <p>Летом на море все вместе</p>
-    </a>
+            <a href="traditions/sea.html" class="tradition-item">
+                <span class="icon">🏖️</span>
+                <p>Летом на море все вместе</p>
+            </a>
 
-    <a href="traditions/birthday.html" class="tradition-item">
-        <span class="icon">🎂</span>
-        <p>Дни рождения празднуем с тортом и свечами</p>
-        </a>
-</div>
-                </div>
-            
-            </div>
-            <div class="contacts" id="contacts">
-                <h2>Контакты</h2>
-                <p>📧 yankatyanka@icloud.com</p>
-                <p>📱 +7 (900) 444-05-10</p>
-                </div>
-            
-            <div class="footer">
-                <p>© 2026 Family First. Сделано с любовью ❤️</p>
-            </div>
-    </body>
+            <a href="traditions/birthday.html" class="tradition-item">
+                <span class="icon">🎂</span>
+                <p>Дни рождения празднуем с тортом и свечами</p>
+            </a>
+        </div>
+    </div>
+
+    </div>
+    <div class="contacts" id="contacts">
+        <h2>Контакты</h2>
+        <p>📧 yankatyanka@icloud.com</p>
+        <p>📱 +7 (900) 444-05-10</p>
+    </div>
+
+    <div class="footer">
+        <p>© 2026 Family First. Сделано с любовью ❤️</p>
+    </div>
+</body>
+
 </html>
